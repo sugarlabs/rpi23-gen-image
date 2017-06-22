@@ -353,8 +353,8 @@ fi
 
 # Don't clobber an old build
 if [ -e "$BUILDDIR" ] ; then
-  rm -rfv $BUILDDIR
-  echo "${BUILDDIR} has been deleted, please run script again to build your image"
++  rm -rfv $BUILDDIR
++  echo "${BUILDDIR} has been deleted, please run script again to build your image"
    exit 1
 fi
 
@@ -420,7 +420,7 @@ fi
 
 # Add user defined window manager package
 if [ -n "$ENABLE_WM" ] ; then
-  APT_INCLUDES="${APT_INCLUDES},${ENABLE_WM},${ENABLE_DM},telepathy-mission-control-5,unzip"
+  APT_INCLUDES="${APT_INCLUDES},${ENABLE_WM},${ENABLE_DM}"
 
   # Enable xorg package dependencies
   ENABLE_XORG=true
