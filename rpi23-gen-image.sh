@@ -352,8 +352,9 @@ fi
 
 # Don't clobber an old build
 if [ -e "$BUILDDIR" ] ; then
-  echo "error: directory ${BUILDDIR} already exists, not proceeding"
-  exit 1
++  rm -rfv $BUILDDIR
++  echo "${BUILDDIR} has been deleted, please run script again to build your image"
+   exit 1
 fi
 
 # Setup chroot directory
