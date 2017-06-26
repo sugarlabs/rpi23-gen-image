@@ -1,0 +1,8 @@
+RPI_MODEL=3
+RELEASE=stretch
+BUILD_KERNEL=true
+ENABLE_WIRELESS=true
+ENABLE_XORG=true
+ENABLE_MINBASE=true
+ENABLE_SSHD=false
+APT_INCLUDES="dbus,dbus-x11,sucrose,lightdm,telepathy-mission-control-5,unzip,nodm,openssh-client,telepathy-salut,telepathy-gabble,upower,pulseaudio,gstreamer1.0-pulseaudio,gstreamer1.0-espeak,gstreamer1.0-plugins-good"

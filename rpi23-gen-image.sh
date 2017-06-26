@@ -41,14 +41,14 @@ echo -n -e "\n#\n# RPi2/3 Bootstrap Settings\n#\n"
 set -x
 
 # Raspberry Pi model configuration
-RPI_MODEL=${RPI_MODEL:=3}
+RPI_MODEL=${RPI_MODEL:=2}
 RPI2_DTB_FILE=${RPI2_DTB_FILE:=bcm2709-rpi-2-b.dtb}
 RPI2_UBOOT_CONFIG=${RPI2_UBOOT_CONFIG:=rpi_2_defconfig}
 RPI3_DTB_FILE=${RPI3_DTB_FILE:=bcm2710-rpi-3-b.dtb}
 RPI3_UBOOT_CONFIG=${RPI3_UBOOT_CONFIG:=rpi_3_32b_defconfig}
 
 # Debian release
-RELEASE=${RELEASE:=stretch}
+RELEASE=${RELEASE:=jessie}
 KERNEL_ARCH=${KERNEL_ARCH:=arm}
 RELEASE_ARCH=${RELEASE_ARCH:=armhf}
 CROSS_COMPILE=${CROSS_COMPILE:=arm-linux-gnueabihf-}
@@ -120,14 +120,13 @@ ENABLE_SPI=${ENABLE_SPI:=false}
 ENABLE_IPV6=${ENABLE_IPV6:=true}
 ENABLE_SSHD=${ENABLE_SSHD:=true}
 ENABLE_NONFREE=${ENABLE_NONFREE:=false}
-ENABLE_WIRELESS=${ENABLE_WIRELESS:=true}
+ENABLE_WIRELESS=${ENABLE_WIRELESS:=false}
 ENABLE_SOUND=${ENABLE_SOUND:=true}
 ENABLE_DBUS=${ENABLE_DBUS:=true}
 ENABLE_HWRANDOM=${ENABLE_HWRANDOM:=true}
 ENABLE_MINGPU=${ENABLE_MINGPU:=false}
-ENABLE_XORG=${ENABLE_XORG:=true}
-ENABLE_WM=${ENABLE_WM:="sucrose"}
-ENABLE_DM=${ENABLE_DM:="lightdm"}
+ENABLE_XORG=${ENABLE_XORG:=false}
+ENABLE_WM=${ENABLE_WM:=""}
 ENABLE_RSYSLOG=${ENABLE_RSYSLOG:=true}
 ENABLE_USER=${ENABLE_USER:=true}
 USER_NAME=${USER_NAME:="pi"}
@@ -141,7 +140,7 @@ SSH_ROOT_PUB_KEY=${SSH_ROOT_PUB_KEY:=""}
 SSH_USER_PUB_KEY=${SSH_USER_PUB_KEY:=""}
 
 # Advanced settings
-ENABLE_MINBASE=${ENABLE_MINBASE:=true}
+ENABLE_MINBASE=${ENABLE_MINBASE:=false}
 ENABLE_REDUCE=${ENABLE_REDUCE:=false}
 ENABLE_UBOOT=${ENABLE_UBOOT:=false}
 UBOOTSRC_DIR=${UBOOTSRC_DIR:=""}
@@ -155,7 +154,7 @@ ENABLE_IFNAMES=${ENABLE_IFNAMES:=true}
 DISABLE_UNDERVOLT_WARNINGS=${DISABLE_UNDERVOLT_WARNINGS:=}
 
 # Kernel compilation settings
-BUILD_KERNEL=${BUILD_KERNEL:=true}
+BUILD_KERNEL=${BUILD_KERNEL:=false}
 KERNEL_REDUCE=${KERNEL_REDUCE:=false}
 KERNEL_THREADS=${KERNEL_THREADS:=1}
 KERNEL_HEADERS=${KERNEL_HEADERS:=true}
@@ -353,9 +352,8 @@ fi
 
 # Don't clobber an old build
 if [ -e "$BUILDDIR" ] ; then
-  rm -rfv $BUILDDIR
-  echo "${BUILDDIR} has been deleted, please run script again to build your image"
-   exit 1
+  echo "error: directory ${BUILDDIR} already exists, not proceeding"
+  exit 1
 fi
 
 # Setup chroot directory
@@ -389,7 +387,7 @@ fi
 
 # Add dbus package, recommended if using systemd
 if [ "$ENABLE_DBUS" = true ] ; then
-  APT_INCLUDES="${APT_INCLUDES},dbus,dbus-x11"
+  APT_INCLUDES="${APT_INCLUDES},dbus"
 fi
 
 # Add iptables IPv4/IPv6 package
@@ -420,7 +418,7 @@ fi
 
 # Add user defined window manager package
 if [ -n "$ENABLE_WM" ] ; then
-  APT_INCLUDES="${APT_INCLUDES},${ENABLE_WM},${ENABLE_DM},telepathy-mission-control-5,unzip"
+  APT_INCLUDES="${APT_INCLUDES},${ENABLE_WM}"
 
   # Enable xorg package dependencies
   ENABLE_XORG=true
