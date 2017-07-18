@@ -353,7 +353,7 @@ fi
 
 # Don't clobber an old build
 if [ -e "$BUILDDIR" ] ; then
-  rm -rfv $BUILDDIR
+  rm -rf $BUILDDIR
   echo "${BUILDDIR} has been deleted, please run script again to build your image"
    exit 1
 fi
