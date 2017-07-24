@@ -48,4 +48,7 @@ if [ -d packages ] ; then
 fi
 chroot_exec apt-get -qq -y -f install
 
+rm -rf ${BUILDDIR}/chroot/etc/lightdm/lightdm.conf
+cp files/lightdm.conf ${BUILDDIR}/chroot/etc/lightdm
+
 chroot_exec apt-get -qq -y check
