@@ -50,5 +50,6 @@ chroot_exec apt-get -qq -y -f install
 
 rm -rf ${BUILDDIR}/chroot/etc/lightdm/lightdm.conf
 cp files/lightdm.conf ${BUILDDIR}/chroot/etc/lightdm
+find files/Sugar-activities/TurtleBlocks3D.activity -maxdepth 1 -type f | xargs cp -t ${BUILDDIR}/chroot/usr/share/sugar/activities
 
 chroot_exec apt-get -qq -y check
