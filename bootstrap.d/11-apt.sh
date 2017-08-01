@@ -51,6 +51,6 @@ chroot_exec apt-get -qq -y -f install
 cp files/lightdm.conf ${BUILDDIR}/chroot/etc/lightdm
 unzip files/Sugar-activities/cedit-3.xo -d ${BUILDDIR}/chroot/usr/share/sugar/activities
 unzip files/Sugar-activities/TurtleBlocks-216.xo -d ${BUILDDIR}/chroot/usr/share/sugar/activities
-
+unzip files/Sugar-activities/Physics-32.1.xo -d ${BUILDDIR}/chroot/usr/share/sugar/activities
 
 chroot_exec apt-get -qq -y check
