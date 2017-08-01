@@ -48,8 +48,13 @@ if [ -d packages ] ; then
 fi
 chroot_exec apt-get -qq -y -f install
 
-rm -rf ${BUILDDIR}/chroot/etc/lightdm/lightdm.conf
 cp files/lightdm.conf ${BUILDDIR}/chroot/etc/lightdm
-find files/Sugar-activities/TurtleBlocks3D.activity -maxdepth 1 -type f | xargs cp -t ${BUILDDIR}/chroot/usr/share/sugar/activities
+unzip files/Sugar-activities/cedit-3.xo
+unzip files/Sugar-activities/TurtleBlocks-216.xo
+unzip files/Sugar-activities/Write-97.xo
+cp -r files/Sugar-activities/CEdit.activity ${BUILDDIR}/chroot/usr/share/sugar/activities
+cp -r files/Sugar-activities/TurtleBlocks.activity ${BUILDDIR}/chroot/usr/share/sugar/activities
+cp -r files/Sugar-activities/Write.activity ${BUILDDIR}/chroot/usr/share/sugar/activities
+
 
 chroot_exec apt-get -qq -y check
