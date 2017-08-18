@@ -352,7 +352,8 @@ fi
 
 # Don't clobber an old build
 if [ -e "$BUILDDIR" ] ; then
-  echo "error: directory ${BUILDDIR} already exists, not proceeding"
+  rm -rf $BUILDDIR
+  echo "${BUILDDIR} has been deleted, please run script again to build your image"
   exit 1
 fi
 
@@ -418,7 +419,7 @@ fi
 
 # Add user defined window manager package
 if [ -n "$ENABLE_WM" ] ; then
-  APT_INCLUDES="${APT_INCLUDES},${ENABLE_WM}"
+  APT_INCLUDES="${APT_INCLUDES},${ENABLE_WM},${ENABLE_DM}"
 
   # Enable xorg package dependencies
   ENABLE_XORG=true
