@@ -33,6 +33,9 @@ wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/29226/story-17.
 wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/29043/typing_turtle-31.xo -P files/Sugar-activities
 wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/28989/words-21.xo -P files/Sugar-activities
 wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/29282/stopwatch-19.xo -P files/Sugar-activities
+wget https://people.sugarlabs.org/rishabh/Physics-32.1.xo -P files/Sugar-activities
+wget https://people.sugarlabs.org/rishabh/TurtleBlocks-216.xo -P files/Sugar-activities
+
 
 # installing new activities
 
