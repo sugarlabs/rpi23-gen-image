@@ -350,7 +350,7 @@ if [ -r "/dev/mapping/${CRYPTFS_MAPPING}" ] ; then
   exit 1
 fi
 
-# To delete an old build
+# Don't clobber an old build folder
 if [ -e "$BUILDDIR" ] ; then
   rm -rf $BUILDDIR
   echo "${BUILDDIR} has been deleted, please run script again to build your image"
