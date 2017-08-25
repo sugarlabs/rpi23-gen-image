@@ -36,6 +36,7 @@ wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/29282/stopwatch
 wget https://people.sugarlabs.org/rishabh/Physics-32.1.xo -P files/Sugar-activities
 wget https://people.sugarlabs.org/rishabh/TurtleBlocks-216.xo -P files/Sugar-activities
 
+
 # installing new activities
 
 unzip files/Sugar-activities/cedit-3.xo -d ${BUILDDIR}/chroot/usr/share/sugar/activities
