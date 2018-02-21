@@ -11,7 +11,7 @@ EXCLUDES=""
 
 # Use non-free Debian packages if needed
 if [ "$ENABLE_NONFREE" = true ] ; then
-  COMPONENTS="main,non-free"
+  COMPONENTS="main,non-free,contrib"
 fi
 
 # Use minbase bootstrap variant which only includes essential packages
@@ -20,7 +20,7 @@ if [ "$ENABLE_MINBASE" = true ] ; then
 fi
 
 # Exclude packages if required by Debian release
-if [ "$RELEASE" = "stretch" ] ; then
+if [ "$RELEASE" = "stretch" ] || [ "$RELEASE" = "buster" ] ; then
   EXCLUDES="--exclude=init,systemd-sysv"
 fi
 
@@ -28,7 +28,7 @@ fi
 http_proxy=${APT_PROXY} debootstrap ${EXCLUDES} --arch="${RELEASE_ARCH}" --foreign ${VARIANT} --components="${COMPONENTS}" --include="${APT_INCLUDES}" "${RELEASE}" "${R}" "http://${APT_SERVER}/debian"
 
 # Copy qemu emulator binary to chroot
-install_exec "${QEMU_BINARY}" "${R}${QEMU_BINARY}"
+install -m 755 -o root -g root "${QEMU_BINARY}" "${R}${QEMU_BINARY}"
 
 # Copy debian-archive-keyring.pgp
 mkdir -p "${R}/usr/share/keyrings"
