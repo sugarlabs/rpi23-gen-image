@@ -48,5 +48,4 @@ if [ -d packages ] ; then
 fi
 chroot_exec apt-get -qq -y -f install
 
-
 chroot_exec apt-get -qq -y check
