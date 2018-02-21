@@ -1,0 +1,10 @@
+RPI_MODEL=3
+RELEASE=stretch
+ENABLE_DM=${ENABLE_DM:="lightdm"}
+ENABLE_WM=${ENABLE_WM:="sucrose"}
+BUILD_KERNEL=true
+ENABLE_WIRELESS=true
+ENABLE_XORG=true
+ENABLE_MINBASE=true
+ENABLE_SSHD=false
+APT_INCLUDES="sucrose,lightdm,network-manager,telepathy-mission-control-5,unzip,openssh-client,telepathy-salut,telepathy-gabble,upower,pulseaudio,gstreamer1.0-pulseaudio,gstreamer1.0-espeak,gstreamer1.0-plugins-good,python-sugar-toolkit,python-sugar"
