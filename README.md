@@ -47,8 +47,8 @@ To avoid long lists of command-line parameters and to help to store the favourit
 
 ##### Command-line examples:
 ```shell
-CONFIG_TEMPLATE=rpi3stretch ./rpi23-gen-image.sh
-CONFIG_TEMPLATE=rpi2stretch ./rpi23-gen-image.sh
+CONFIG_TEMPLATE=rpi3stretch-sugar ./rpi23-gen-image.sh
+CONFIG_TEMPLATE=rpi2stretch-sugar ./rpi23-gen-image.sh
 ```
 
 ## Supported parameters and settings
