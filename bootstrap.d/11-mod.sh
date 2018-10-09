@@ -9,13 +9,9 @@
 
 cp files/lightdm.conf ${BUILDDIR}/chroot/etc/lightdm
 
-# Deleting Write.activity
-
-rm -rf ${BUILDDIR}/chroot/usr/share/sugar/activities/Write.activity
-
 # Downloading new activities
 
-wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/29070/cedit-3.xo -P files/Sugar-activities
+# wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/29070/cedit-3.xo -P files/Sugar-activities
 wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/29202/abacus-59.xo -P files/Sugar-activities
 wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/27834/countries-33.xo -P files/Sugar-activities
 wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/28731/dimensions-53.xo -P files/Sugar-activities
@@ -38,7 +34,7 @@ wget https://people.sugarlabs.org/rishabh/TurtleBlocks-216.xo -P files/Sugar-act
 
 # installing new activities
 
-unzip files/Sugar-activities/cedit-3.xo -d ${BUILDDIR}/chroot/usr/share/sugar/activities
+#unzip files/Sugar-activities/cedit-3.xo -d ${BUILDDIR}/chroot/usr/share/sugar/activities
 unzip files/Sugar-activities/TurtleBlocks-216.xo -d ${BUILDDIR}/chroot/usr/share/sugar/activities
 unzip files/Sugar-activities/Physics-32.1.xo -d ${BUILDDIR}/chroot/usr/share/sugar/activities
 unzip files/Sugar-activities/abacus-59.xo -d ${BUILDDIR}/chroot/usr/share/sugar/activities
