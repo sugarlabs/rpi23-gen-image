@@ -4,6 +4,8 @@
 
 Note: This fork of the image builder is used to generate custom Sugar Debian images. Please refer to the templates section to run the build process
 
+Note: This fork of the image builder is used to generate custom Sugar Debian images. Please refer to the templates section to run the build process
+
 ## Build dependencies
 The following list of Debian packages must be installed on the build system because they are essentially required for the bootstrapping process. The script will check if all required packages are installed and missing packages will be installed automatically if confirmed by the user.
 

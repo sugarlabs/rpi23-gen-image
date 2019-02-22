@@ -11,7 +11,7 @@ cp files/lightdm.conf ${BUILDDIR}/chroot/etc/lightdm
 
 # Downloading new activities
 
-#wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/29070/cedit-3.xo -P files/Sugar-activities
+# wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/29070/cedit-3.xo -P files/Sugar-activities
 wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/29202/abacus-59.xo -P files/Sugar-activities
 wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/27834/countries-33.xo -P files/Sugar-activities
 wget https://activities.sugarlabs.org/en-US/sugar/downloads/file/28731/dimensions-53.xo -P files/Sugar-activities
